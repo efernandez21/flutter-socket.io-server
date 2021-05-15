@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SocketServer</title>
+</head>
+
+<body>
+    <h1>Ingresando al socket server</h1>
+    <!-- Agregamos el script de la configuracion del socket -->
+
+    <script src="socket.io/socket.io.js"></script>
+    <!-- Hace el llamado a la conexion del socket server a la pagina que estamos usando -->
+    <script>
+        //declarra la conexion al servidor
+        var socket = io();
+        /*Gestionando la conexion y la desconexion del servidor*/
+        socket.on('connect', function () {
+            console.log('Conectando al servidor');
+        });
+        socket.on('disconnect', function () {
+            console.log('Perdimos comunicacion con el servidor');
+        });
+        //Emitimos un evento, se mandan objetos por lo general
+        socket.emit('mensaje', { nombre: 'Fernando' });
+        socket.on('mensaje', function (payload) {
+            console.log('Escuchando la respuesta del servidor: ', payload);
+        });
+    </script>
+</body>
+
+</html>
