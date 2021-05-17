@@ -11,7 +11,7 @@ io.on('connection', client => {
     // on es para escuchar lo que recibimos del cliente
     client.on('mensaje', (payload) => {
         console.log('Mensaje!!! ',payload['nombre']);
-        // emitiendo mensaje a todos los clientes conectados, podriamos usar mejor el client para solo emitirle al cliente que nos envio el mensaje
+        // emitiendo mensaje a todos los clientes conectados con el io, podriamos usar mejor el client para solo emitirle al cliente que nos envio el mensaje
         io.emit( 'mensaje', {admin:'Nuevo Mensaje'} );
     });
 

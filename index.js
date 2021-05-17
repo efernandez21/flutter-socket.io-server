@@ -19,8 +19,8 @@ require('./sockets/socket');
 
 //path publico para detectar el directorio donde esta corriendo mi servidor, y en la carpeta public tendremos la pagina principal al enviar la solicitud a ese puerto
 const publicPath = path.resolve(__dirname, 'public');
-// mostremos el path public o usemolo en mi app
 
+// mostremos el path public o usemolo en mi app, usamos el index.html para indicar la primera entrada de nuestro backend
 app.use(express.static(publicPath));
 // Escucharemos la aplicacion en un puerto determinado
 server.listen(process.env.PORT, (err) => {

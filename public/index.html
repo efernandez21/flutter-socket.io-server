@@ -26,6 +26,7 @@
         });
         //Emitimos un evento, se mandan objetos por lo general
         socket.emit('mensaje', { nombre: 'Fernando' });
+        // Escucha la respuesta del servidor
         socket.on('mensaje', function (payload) {
             console.log('Escuchando la respuesta del servidor: ', payload);
         });
