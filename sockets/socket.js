@@ -1,4 +1,4 @@
-// Importo entonces io
+// Importo entonces io que es una importacion con nombre
 const {io} = require('../index');
 // Mensajes de sockets
 // cuando hay una conexion es de destacar que cada navegador o ventana tendra un id unico que lo identificara
@@ -12,7 +12,7 @@ io.on('connection', client => {
     client.on('mensaje', (payload) => {
         console.log('Mensaje!!! ',payload['nombre']);
         // emitiendo mensaje a todos los clientes conectados con el io, podriamos usar mejor el client para solo emitirle al cliente que nos envio el mensaje
-        io.emit( 'mensaje', {admin:'Nuevo Mensaje'} );
+        io.emit( 'mensaje', {admin:'Recibimos tu mensaje'} );
     });
 
 });

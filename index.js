@@ -1,4 +1,5 @@
 // Construccion de mi backend server
+//importado de paquetes
 const express = require('express');
 const path = require('path');
 // Establece las variables de entorno
@@ -9,7 +10,7 @@ const app = express();
 //Node Server
 const server = require('http').createServer(app);
 // configuracion de socket server
-// exportacion de un modulo a node
+// exportacion de un modulo a node para el archivo del socket.js
 module.exports.io = require('socket.io')(server);
 // llamar al archivo de sockets
 require('./sockets/socket');

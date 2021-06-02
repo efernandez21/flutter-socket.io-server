@@ -15,7 +15,7 @@
     <script src="socket.io/socket.io.js"></script>
     <!-- Hace el llamado a la conexion del socket server a la pagina que estamos usando -->
     <script>
-        //declarra la conexion al servidor
+        //declara la conexion al servidor
         var socket = io();
         /*Gestionando la conexion y la desconexion del servidor*/
         socket.on('connect', function () {
@@ -28,7 +28,7 @@
         socket.emit('mensaje', { nombre: 'Fernando' });
         // Escucha la respuesta del servidor
         socket.on('mensaje', function (payload) {
-            console.log('Escuchando la respuesta del servidor: ', payload);
+            console.log('Escuchando la respuesta del servidor: ', payload['admin']);
         });
     </script>
 </body>
