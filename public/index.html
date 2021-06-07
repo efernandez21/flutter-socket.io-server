@@ -25,10 +25,19 @@
             console.log('Perdimos comunicacion con el servidor');
         });
         //Emitimos un evento, se mandan objetos por lo general
-        socket.emit('mensaje', { nombre: 'Fernando' });
-        // Escucha la respuesta del servidor
-        socket.on('mensaje', function (payload) {
-            console.log('Escuchando la respuesta del servidor: ', payload['admin']);
+        // socket.emit('mensaje', { nombre: 'Fernando' });
+        // // Escucha la respuesta del servidor
+        // socket.on('mensaje', function (payload) {
+        //     console.log('Escuchando la respuesta del servidor: ', payload['admin']);
+        // });
+        //Reacciona con base en lo escuchado en el servidor
+        socket.on('nuevo-mensaje', function (payload) {
+            console.log('Escuchando la respuesta del servidor: ', payload);
+        });
+        // Esperamos el recibimiento de las bandas activas que emite mi servidor
+        socket.on('active-bands', function (payload) {
+            console.clear();
+            console.table(payload);
         });
     </script>
 </body>
